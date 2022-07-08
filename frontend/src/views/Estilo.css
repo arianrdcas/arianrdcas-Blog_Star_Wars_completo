@@ -1,0 +1,24 @@
+.d-flex{
+    overflow-x: auto ;
+}
+
+.d-flex::-webkit-scrollbar{
+    scrollbar-width: 100px;
+}
+
+.d-flex .card{
+    margin-right: 20px;
+    min-width: 150px;
+    min-height: 150px;
+}
+
+.body{background-image:url( 
+      https://viajes.nationalgeographic.com.es/medio/2020/04/01/6-via-lactea_57769b72_1254x836.jpg);
+      background-size: 100% auto;
+      background-position: center top;
+      
+}
+
+.text{
+    color: red;
+}

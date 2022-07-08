@@ -1,0 +1,56 @@
+.box{
+    position: relative; 
+    width: 900px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.box::before{
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 6790px;
+    background: linear-gradient(#00ccff, #d400d4);
+    animation: animate 3s linear infinite;
+}
+
+.box::after{
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background-image:url( 
+      https://viajes.nationalgeographic.com.es/medio/2020/04/01/6-via-lactea_57769b72_1254x836.jpg);
+    border-radius: 16px;
+}
+
+@keyframes animate
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+
+}
+
+.box h1{
+    position: relative;
+    color: #fff;
+    font-size: 50px;
+    z-index: 10;
+}
+
+body{background-image:url( 
+    https://viajes.nationalgeographic.com.es/medio/2020/04/01/6-via-lactea_57769b72_1254x836.jpg);
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
