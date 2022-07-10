@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { AiFillDelete } from "react-icons/ai";
-import { Link } from "react-router-dom";
-
+import { useLocation, useHistory, Link } from "react-router-dom";
 
 const Navbar = () => {
-
   const { store, actions } = useContext(Context);
-
+  const history = useHistory();
+  const location = useLocation();
 
   const eliminarFavorito = (i) => {
     let index = i;
@@ -26,7 +25,36 @@ const Navbar = () => {
             width="80px"
           />
         </Link>
-      
+
+        <ul className="nav nav-tabs">
+          <li className="nav-item">
+            <Link className={"nav-link " + (location.pathname === '/profile' ? "active" : "") } to="/profile">
+              Profile
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className={"nav-link " + (location.pathname === '/api/registro' ? "active" : "")} to="/api/registro">
+              Registro
+            </Link>
+          </li>
+          {
+            !store.isAuth ? (
+            <li className="nav-item">
+              <Link className={"nav-link " + (location.pathname === '/login' ? "active" : "")} to="/login">
+                  Login
+              </Link>
+            </li>
+            ) :
+            (
+              <li className="nav-item">
+                <Link className="nav-link" /* onClick={logout} */ to="/login">
+                  Logout
+                </Link>
+              </li>
+            )
+          } 
+        </ul>
+
         <div className="dropdown">
           <button
             className="btn btn-primary dropdown-toggle"
@@ -50,9 +78,9 @@ const Navbar = () => {
                     </li>
                   )
                 }):
-                <li>
-                  <Link className="dropdown-item" href="#">Agrega favoritos </Link>
-                </li>
+                  <li>
+                    <Link className="dropdown-item" href="#">Agrega favoritos </Link>
+                  </li>
                 }
               </ul>
         </div>
